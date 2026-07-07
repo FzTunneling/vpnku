@@ -96,14 +96,14 @@ clear
 
 # --- Pengambilan Data Pengguna ---
 rm -f /usr/bin/user
-username=$(curl -s https://raw.githubusercontent.com/bowowiwendi/ipvps/main/ip | grep $MYIP | awk '{print $2}')
+username=$(curl -s https://raw.githubusercontent.com/FzTunneling/ipvps/main/ip | grep $MYIP | awk '{print $2}')
 if [ -z "$username" ]; then
     print_error "Username tidak ditemukan untuk IP $MYIP."
 else
     echo "$username" >/usr/bin/user
     print_ok "Username ditemukan: $username"
 fi
-valid=$(curl -s https://raw.githubusercontent.com/bowowiwendi/ipvps/main/ip | grep $MYIP | awk '{print $3}')
+valid=$(curl -s https://raw.githubusercontent.com/FzTunneling/ipvps/main/ip | grep $MYIP | awk '{print $3}')
 echo "$valid" >/usr/bin/e
 username=$(cat /usr/bin/user)
 oid=$(cat /usr/bin/ver)
@@ -124,7 +124,7 @@ mai="datediff "$Exp" "$DATE""
 Info="(${green}Active${NC})"
 Error="(${RED}ExpiRED${NC})"
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp1=$(curl -s https://raw.githubusercontent.com/bowowiwendi/ipvps/main/ip | grep $MYIP | awk '{print $4}')
+Exp1=$(curl -s https://raw.githubusercontent.com/FzTunneling/ipvps/main/ip | grep $MYIP | awk '{print $4}')
 if [[ $today < $Exp1 ]]; then
 sts="${Info}"
 else
@@ -134,7 +134,7 @@ print_ok "\e[32mloading...\e[0m"
 clear
 
 # --- Definisi Variabel ---
-REPO="https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/"
+REPO="https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/"
 start=$(date +%s)
 secs_to_human() {
 echo "Installation time : $((${1} / 3600)) hours $(((${1} / 60) % 60)) minute's $((${1} % 60)) seconds"
@@ -825,9 +825,9 @@ EOF
 function udp_mini(){
     print_install "MENJALANKAN udp_mini"
     print_ok "Mengunduh dan menjalankan limit.sh..."
-    wget https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/limit.sh && chmod +x limit.sh && ./limit.sh
+    wget https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/files/limit.sh && chmod +x limit.sh && ./limit.sh
     print_ok "Mengunduh limit-ip..."
-    wget -q -O /usr/bin/limit-ip "https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/limit-ip"
+    wget -q -O /usr/bin/limit-ip "https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/files/limit-ip"
     chmod +x /usr/bin/limit-ip
     print_ok "Membuat dan mengaktifkan layanan vmip, vlip, trip..."
     for service_name in vmip vlip trip; do
@@ -851,11 +851,11 @@ EOF
     done
     print_ok "Membuat direktori dan mengunduh udp-mini..."
     mkdir -p /usr/local/kyt/
-    wget -q -O /usr/local/kyt/udp-mini "https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/udp-mini"
+    wget -q -O /usr/local/kyt/udp-mini "https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/files/udp-mini"
     chmod +x /usr/local/kyt/udp-mini
     print_ok "Mengunduh dan mengelola layanan udp-mini..."
     for i in {1..3}; do
-        wget -q -O /etc/systemd/system/udp-mini-${i}.service "https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/udp-mini-${i}.service"
+        wget -q -O /etc/systemd/system/udp-mini-${i}.service "https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/files/udp-mini-${i}.service"
     done
     for i in {1..3}; do
         systemctl daemon-reload
@@ -902,8 +902,8 @@ TIMES=30
     fi
     local DATE_FORMAT=$(date '+%d-%m-%Y')
     local TIME_FORMAT=$(date '+%H:%M:%S')
-    local USRSC=$(wget -qO- https://raw.githubusercontent.com/bowowiwendi/ipvps/main/main/ip | grep "$ipsaya" | awk '{print $2}' | head -n 1)
-    local EXPSC=$(wget -qO- https://raw.githubusercontent.com/bowowiwendi/ipvps/main/main/ip | grep "$ipsaya" | awk '{print $3}' | head -n 1)
+    local USRSC=$(wget -qO- https://raw.githubusercontent.com/FzTunneling/ipvps/main/main/ip | grep "$ipsaya" | awk '{print $2}' | head -n 1)
+    local EXPSC=$(wget -qO- https://raw.githubusercontent.com/FzTunneling/ipvps/main/main/ip | grep "$ipsaya" | awk '{print $3}' | head -n 1)
     if [[ -z "$passwd" ]]; then
         local passwd_display="<i>(Tidak diubah/digunakan saat ini)</i>"
     else
@@ -928,10 +928,10 @@ TIMES=30
 <i>Informasi ini tidak akan dikirim ulang.</i>
 
 📞 <b>Dukungan & Kontak</b> 📞
-💬 Telegram: @WendiVpn
-📱 WhatsApp: +6283153170199
+💬 Telegram: @Rejctvpn
+📱 WhatsApp: +67077477041
 "
-    local REPLY_MARKUP='{"inline_keyboard":[[{"text":"🌐 Website","url":"https://t.me/wendivpn"},{"text":"🛠 Kontak","url":"https://wa.me/6283153170199"}]]}'
+    local REPLY_MARKUP='{"inline_keyboard":[[{"text":"🌐 Website","url":"https://t.me/Rejctvpn"},{"text":"🛠 Kontak","url":"https://wa.me/6283153170199"}]]}'
     print_ok "Mengirim notifikasi ke Telegram (Chat ID: $CHATID)..."
     local CURL_OUTPUT
     CURL_OUTPUT=$(curl -s --max-time "$TIMES" \
@@ -983,7 +983,7 @@ function install_openvpn() {
     apt install -y openvpn || { print_error "Gagal menginstal paket openvpn."; print_error "OpenVPN (Instalasi Paket)"; print_error "install_openvpn GAGAL"; return 1; }
     print_success "Instalasi Paket OpenVPN"
     print_ok "Mengunduh dan menjalankan skrip konfigurasi kustom..."
-    if wget https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/openvpn -O /root/openvpn_setup.sh; then
+    if wget https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/files/openvpn -O /root/openvpn_setup.sh; then
         chmod +x /root/openvpn_setup.sh
         if /root/openvpn_setup.sh; then
             print_ok "Skrip konfigurasi kustom berhasil dijalankan."
