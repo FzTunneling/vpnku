@@ -1,4 +1,4 @@
-# WendyVpn — Multi-Port VPN Tunnel & Telegram Bot
+# HyugaVpn — Multi-Port VPN Tunnel & Telegram Bot
 
 All-in-one VPN tunneling script with Telegram bot management (kyt). Supports SSH, VMess, VLess, Trojan, Shadowsocks, OpenVPN, and SlowDNS.
 
@@ -15,17 +15,17 @@ apt update && apt upgrade -y && update-grub && sleep 2 && reboot
 
 ### 2. Install Script
 ```bash
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update -y && apt upgrade -y && apt install -y bzip2 gzip coreutils screen curl unzip && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/setup-main.sh && chmod +x setup-main.sh && sed -i -e 's/\r$//' setup-main.sh && screen -S setupku ./setup-main.sh
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update -y && apt upgrade -y && apt install -y bzip2 gzip coreutils screen curl unzip && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/setup-main.sh && chmod +x setup-main.sh && sed -i -e 's/\r$//' setup-main.sh && screen -S setupku ./setup-main.sh
 ```
 
 ### 3. Bot Telegram (kyt)
 ```bash
-wget https://raw.githubusercontent.com/bowowiwendi/WendyVpn/refs/heads/ABSTRAK/bot/install.sh && chmod +x install.sh && ./install.sh
+wget https://raw.githubusercontent.com/FzTunneling/vpnku/refs/heads/ABSTRAK/bot/install.sh && chmod +x install.sh && ./install.sh
 ```
 
 ### 4. Update Script
 ```bash
-wget https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/FzTunneling/vpnku/ABSTRAK/files/update.sh && chmod +x update.sh && ./update.sh
 ```
 
 ## Features
@@ -81,5 +81,5 @@ wget https://raw.githubusercontent.com/bowowiwendi/WendyVpn/ABSTRAK/files/update
 
 ## Contact
 
-- Telegram: [@WendiVpn](https://t.me/WendiVpn)
-- WhatsApp: 083153170199
+- Telegram: [@Rejctvpn](https://t.me/WendiVpn)
+- WhatsApp: +67077477041
