@@ -49,7 +49,7 @@
 
 - `bot/kyt.zip` is the **final artifact** — source tree was removed. To edit:
   ```bash
-  mkdir -p /tmp/kyt_edit && cd /tmp/kyt_edit && unzip -o /root/WendyVpn/bot/kyt.zip && nano kyt/modules/file.py && rm -f /root/WendyVpn/bot/kyt.zip && zip -r /root/WendyVpn/bot/kyt.zip kyt/ && rm -rf /tmp/kyt_edit
+  mkdir -p /tmp/kyt_edit && cd /tmp/kyt_edit && unzip -o /root/vpnku/bot/kyt.zip && nano kyt/modules/file.py && rm -f /root/vpnku/bot/kyt.zip && zip -r /root/vpnku/bot/kyt.zip kyt/ && rm -rf /tmp/kyt_edit
   ```
 - Shell scripts in `kyt/shell/bot/` must match `Features/menu.zip`
 - `requirements.txt`: use `telethon>=1.28.0`, **do not add** `keyboard`
@@ -61,7 +61,7 @@
 - Contains the same shell helper scripts (backup, restore, cek-*)
 - Rebuild after updating `Features/menu.zip` scripts:
   ```bash
-  cd Features && unzip -o menu.zip 'menu/bot-*' 'menu/notif_*' 'menu/restore' -d /tmp/bot_rebuild/ && cd /tmp/bot_rebuild/menu && zip -r /root/WendyVpn/bot/bot.zip . && rm -rf /tmp/bot_rebuild
+  cd Features && unzip -o menu.zip 'menu/bot-*' 'menu/notif_*' 'menu/restore' -d /tmp/bot_rebuild/ && cd /tmp/bot_rebuild/menu && zip -r /root/vpnku/bot/bot.zip . && rm -rf /tmp/bot_rebuild
   ```
 
 ## rclone / backup
